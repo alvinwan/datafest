@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Styled Maps - Night Mode</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="/js/data.js"></script>
+    <script src="/js/style.js"></script>
+    <script>
+      function initMap() {
+        // Styles a map in night mode.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 40.674, lng: -73.945},
+          zoom: 4,
+          styles: styles
+        });
+
+        var heatmap = new google.maps.visualization.HeatmapLayer({
+          data: generateHeatmapData()
+        });
+        heatmap.setMap(map);
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW1yC6oWyDdKEWOp1bHPUVb4qxOhsI2IM&callback=initMap&libraries=visualization"
+    async defer></script>
+  </body>
+</html>
